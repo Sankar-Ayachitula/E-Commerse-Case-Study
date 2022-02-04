@@ -1,0 +1,27 @@
+<!-- <p>main works!</p> -->
+<div class="child"><h2>Products</h2></div>
+<div class="child katu"><button class="btn btn-danger"  (click)="signOut()">Sign Out </button></div>
+<div class="child katu"><button   class="btn" style="background-color: rgb(250, 142, 0)" (click)="goToCart()">Go to Cart </button></div>
+
+
+<br>
+
+
+<table class="table table-striped">
+    <thead class="thead-light">
+    <tr>
+        <th scope="col">Mobile Name</th>
+        <th scope="col">Desciption</th>
+        <th scope="col">Cost</th>
+        <th scope="col">Cart</th>
+    </tr>
+    </thead>
+    <tr *ngFor="let pro of products">
+        <th scope="row">{{pro.name}}</th>
+        <td>{{pro.description}}</td>
+        <td>{{pro.cost}} Rs.</td>
+        <button class="buttonColor" (click)="addProductToCart(pro)">Add to Cart</button>
+    </tr>
+</table>
+
+<!-- <a  routerLink="/user-cart">Go to Cart</a> -->

@@ -1,0 +1,23 @@
+<!-- <p>user-cart works!</p> -->
+<div class="child"><h2>Cart</h2></div>
+<div class="child katu"><button class="btn btn-danger" (click)="signOut()">Sign Out </button></div>
+
+<table class="table table-striped" >
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">Mobile Name</th>
+            <th scope="col">Desciption</th>
+            <th scope="col">Cost</th>
+            <th scope="col">Quantity</th>
+        </tr>
+        </thead>
+    <tr *ngFor="let pro of cart">
+        <th scope="row">{{pro.product.name}}</th>
+        <td>{{pro.product.description}}</td>
+        <td>{{pro.product.cost}} Rs.</td>
+        <td><button class="btn-danger" (click)="remove(pro)">-</button> {{pro.quantity}} <button class="btn-success" (click)="add(pro)">+</button></td>
+        
+    </tr>
+</table>
+
+<h2>Total Amount: {{amountObj.amount}} Rs/-</h2> 

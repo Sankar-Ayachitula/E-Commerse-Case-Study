@@ -1,0 +1,20 @@
+<!-- <p>delete-product works!</p> -->
+<h2>Delete Product</h2>
+
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+            
+            <th>Mobile Name</th>
+            <th>Description</th>
+            <th>Cost</th>
+            <th>Delete Product</th>
+        </tr>
+    </thead>
+    <tr *ngFor="let pro of products">
+        <td>{{pro.name}}</td>
+        <td>{{pro.description}}</td>
+        <td>{{pro.cost}}</td>
+        <td><button class="btn btn-danger" (click)="deleteProduct(pro)">Delete</button></td>
+    </tr>
+</table>

@@ -1,0 +1,18 @@
+<!-- <p>view-products works!</p> -->
+
+<table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th>Id</th>
+        <th>Mobile Name</th>
+        <th>Description</th>
+        <th>Cost</th>
+    </tr>
+</thead>
+    <tr *ngFor="let pro of products">
+        <td>{{pro.id}}</td>
+        <td>{{pro.name}}</td>
+        <td>{{pro.description}}</td>
+        <td>{{pro.cost}}</td>
+    </tr>
+</table>

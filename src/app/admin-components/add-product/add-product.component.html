@@ -1,0 +1,18 @@
+<!-- <p>add-product works!</p> -->
+<h2>Add Product</h2>
+
+Product Name:
+<input type="text" [(ngModel)]="product.name" name="fname">
+<br>
+Product Desciption:
+<input type="text" [(ngModel)]="product.description" name="fdescp">
+<br>
+Product Cost:
+<input type="text" [(ngModel)]="product.cost" name="fcost">
+<br>
+Product Id:
+<input type="text" [(ngModel)]="product.id" name="fid">
+
+<input type="button" value="Add Product" (click)="addProduct()">
+
+

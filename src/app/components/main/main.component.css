@@ -1,0 +1,14 @@
+.katu{
+    float: right;
+    margin-right: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.child{
+    display: inline-block;
+}
+
+.buttonColor{
+    background-color: rgb(255, 208, 215);
+}

@@ -1,0 +1,12 @@
+.hero-image {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://oasis.opstatics.com/content/dam/oasis/page/2021/operation/1217/homepage/mo/02-OnePlus-9.jpg");
+    /* height: 50%; */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    object-fit:none;
+width: 100%;
+/* //"https://img.youtube.com/vi/E-51Kc42hoQ/sddefault.jpg"   */
+}
+

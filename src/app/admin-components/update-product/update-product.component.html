@@ -1,0 +1,35 @@
+<!-- <p>update-product works!</p> -->
+<!-- <h2>Update product</h2> -->
+<br>
+<h5>Update Product By Id:</h5>
+<br>
+<input type="text" [(ngModel)]="idById" name:fid>
+<br>
+<input type="button" value="Search" (click)="searchProdById()">
+<br>
+<br>
+Enter Product Name:
+<input type="text" [(ngModel)]="prodById.name" name="fname1"><br>
+Enter Product Desciption:
+<input type="text" [(ngModel)]="prodById.description" name="fdes"><br>
+Enter Product Cost:
+<input type="text" [(ngModel)]="prodById.cost" name="fcost1"><br>
+<input type="button" value="Update" (click)="updateById()">
+
+<br><br><br>
+
+<!-- <input type="text" [(ngModel)]=""> -->
+
+<h5>Update Product By Name:</h5>
+<br>
+<input type="text" [(ngModel)]="nameByName" name:fname><br>
+<input type="button" value="Search" (click)="searchProdByName()"><br><br>
+Enter Product Name:
+<input type="text" [(ngModel)]="prodByName.name" name="fname2"><br>
+Enter Product Desciption:
+<input type="text" [(ngModel)]="prodByName.description" name="fdes"><br>
+Enter Product Cost:
+<input type="text" [(ngModel)]="prodByName.cost" name="fcost2"><br>
+<input type="button" value="Update" (click)="updateByName()">
+
+
