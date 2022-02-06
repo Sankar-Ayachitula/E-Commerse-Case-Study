@@ -1,15 +1,17 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
+
 import { Product } from '../model/product';
 import { TotalAmount } from '../model/total-amount';
 import { User } from '../model/user';
 import { UserProduct } from '../model/user-product';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserLoginService implements CanActivate{
+export class UserLoginService {
 
   users:User[]=[]
 
@@ -17,21 +19,12 @@ export class UserLoginService implements CanActivate{
 
   totalAmount:TotalAmount
 
-  constructor(private router:Router) {
+  constructor(private router:Router,private httpClient:HttpClient) {
     this.users=[{email:"sankarayachitula@gmail.com",password:"test@123",cart:[],totalAmount:new TotalAmount()}]
     this.totalAmount= new TotalAmount()
-    //ez
+    
    }
-  canActivate(): boolean {
-    if(this.currUser==null){
-      this.router.navigateByUrl("/login")
-      alert("please login")
-      return false
-    }
-    else{
-      return true
-    }
-  }
+  
 
    checkUser(email:string,pass:string):boolean{
     console.log("In checkUser function")
@@ -91,6 +84,15 @@ export class UserLoginService implements CanActivate{
 
    signOut(){
      this.currUser=null
+   }
+
+   addUser(user:User):Observable<any>{
+    return this.httpClient.post("http://localhost:3000/users/",user,{responseType: 'text'})
+   }
+
+   loginUser(user:User):Observable<any>{
+     //console.log(user)
+     return this.httpClient.post("http://localhost:3000/login/",user,{responseType:'text'})
    }
 
 

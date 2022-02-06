@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/model/user';
 import { UserLoginService } from 'src/app/services/user-login.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-register',
@@ -10,6 +11,9 @@ import { UserLoginService } from 'src/app/services/user-login.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+
+  msg:any=undefined;
+  errMsg:any=undefined;
 
   email:string=""
   pass1:string=""
@@ -41,6 +45,19 @@ export class RegisterComponent implements OnInit {
       this.user.password=this.pass1
       //check if user already exists
       if(!this.userLoginService.checkUser(this.email,this.pass1)){
+        
+        this.userLoginService.addUser(this.user).subscribe(
+          (data)=>{
+            this.msg="Added";
+            this.errMsg=undefined;
+            
+          },
+          (error)=>{
+            this.msg=undefined;
+            this.errMsg="Not added"
+            //JSON.stringify(error.error);
+          }
+        )
         this.userLoginService.users.push(this.user)
         alert("User Registered Successfully")
         this.email=""
