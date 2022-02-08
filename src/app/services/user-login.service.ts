@@ -7,6 +7,7 @@ import { User } from '../model/user';
 import { UserProduct } from '../model/user-product';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { DbUser } from '../model/db-user';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,8 @@ export class UserLoginService {
   users:User[]=[]
 
   currUser:User|null=null
+  
+  currrUser:DbUser= new DbUser()
 
   totalAmount:TotalAmount
 

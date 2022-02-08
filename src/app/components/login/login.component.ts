@@ -55,12 +55,22 @@ export class LoginComponent implements OnInit {
         //console.log(JSON.parse(response))
         //console.log((JSON.parse(response)).result)
         let temp:any= JSON.parse(response).result
+        let tempId:any= JSON.parse(response).id
+        console.log("Id: "+ tempId)
+        
         //console.log(temp)
         if(JSON.parse(response).result){
+          // this.userService.currrUser.email
+          this.userService.currrUser.email= this.email
+          this.userService.currrUser.id= tempId
           this.router.navigateByUrl("\main")
+        }
+        else{
+          alert("Wrong Email/Password, Please Re-enter correct Email/Password")
         }
       },
       (error: string) => {
+        alert("Server is not responding")
         console.log("The error is:" + error);
       }
     )

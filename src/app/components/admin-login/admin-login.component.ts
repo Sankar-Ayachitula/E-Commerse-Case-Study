@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Admin } from 'src/app/model/admin';
 import { AdminLoginService } from 'src/app/services/admin-login.service';
 
 @Component({
@@ -27,9 +28,32 @@ export class AdminLoginComponent implements OnInit {
   }
 
   doLogin(){
-    if(this.adminService.checkAdmin(this.email,this.pass)){
-      this.router.navigateByUrl("/admin-main")
-    }
+    // if(this.adminService.checkAdmin(this.email,this.pass)){
+    //   this.router.navigateByUrl("/admin-main")
+    // }
+    let user:Admin= new Admin(this.email,this.pass)
+    
+    this.adminService.loginAdmin(user).subscribe(
+      (response) => {
+        console.log(response)
+        
+        let temp:any= JSON.parse(response).result
+        let tempId:any= JSON.parse(response).id
+        console.log("Id: "+ tempId)
+        if(JSON.parse(response).result){          
+          this.router.navigateByUrl("\admin-main")
+        }
+        else{
+          alert("Wrong Email/Password, Please Re-enter correct Email/Password")
+        }
+      },
+      (error: string) => {
+        alert("Server is not responding")
+        console.log("The error is:" + error);
+      }
+    )
   }
+
+
 
 }
