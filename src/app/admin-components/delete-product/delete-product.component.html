@@ -4,7 +4,7 @@
 <table class="table">
     <thead class="thead-light">
         <tr>
-            
+            <th>Id</th>
             <th>Mobile Name</th>
             <th>Description</th>
             <th>Cost</th>
@@ -12,9 +12,10 @@
         </tr>
     </thead>
     <tr *ngFor="let pro of products">
+        <td>{{pro.id}}</td>
         <td>{{pro.name}}</td>
         <td>{{pro.description}}</td>
         <td>{{pro.cost}}</td>
-        <td><button class="btn btn-danger" (click)="deleteProduct(pro)">Delete</button></td>
+        <td><button class="btn btn-danger" (click)="deleteProds(pro.id)">Delete</button></td>
     </tr>
 </table>

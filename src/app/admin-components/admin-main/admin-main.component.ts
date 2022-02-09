@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminLoginService } from 'src/app/services/admin-login.service';
 
 
 @Component({
@@ -8,8 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminMainComponent implements OnInit {
 
-  constructor(){
-
+  constructor(private adminService:AdminLoginService){
+    adminService.getProducts()
   }
 
   ngOnInit(): void {

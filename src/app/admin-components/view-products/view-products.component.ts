@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/model/product';
+import { AdminLoginService } from 'src/app/services/admin-login.service';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
@@ -9,13 +10,22 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class ViewProductsComponent implements OnInit {
 
-  products: Product[]
+  //products: Product[]
 
-  constructor(private cartService: CartService) {
-    this.products=cartService.products
+  dbproducts:Product[]= []
+
+  constructor(private cartService: CartService,private adminService: AdminLoginService) {
+    //this.dbproducts=cartService.products
+    this.dbproducts=adminService.products
    }
 
   ngOnInit(): void {
+    console.log("OnInit is called")
+    this.dbproducts=this.adminService.products
   }
+
+ 
+
+  
 
 }
